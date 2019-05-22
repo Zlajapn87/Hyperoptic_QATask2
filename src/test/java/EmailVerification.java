@@ -2,6 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.com.way2automation.AddUser;
@@ -23,10 +24,10 @@ public class EmailVerification {
         aUser = PageFactory.initElements(driver, AddUser.class);
     }
 
-/*   @AfterClass
+    @AfterClass
     public void tearDown(){
         driver.quit();
-    }*/
+    }
 
     @Test
     public void emailVerification() {
