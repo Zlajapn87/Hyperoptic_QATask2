@@ -9,15 +9,18 @@ import java.util.Random;
 
 public class BaseClass {
 
+
     public String PAGE_URL;
     public String PAGE_TITLE;
     public WebDriver driver;
 
-    //constructor
+    //Constructor
     public BaseClass(WebDriver driver) {
         this.driver = driver;
     }
 
+
+    /* Common methods related to any available page*/
     public void loadPage(){
         driver.get(getPageUrl());
         Assert.assertTrue((driver.getTitle()).contains(getPageTitle()));
@@ -36,12 +39,11 @@ public class BaseClass {
         Select select = new Select(dropdown);
         select.selectByVisibleText(value);
         };
-
+    //Method that generates random (unique) emails
     public String emailGenerator(){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
         String email = ("test"+ randomInt +"@gmail.com");
-        System.out.println(email);
         return email;
     }
 

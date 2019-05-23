@@ -2,6 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.com.way2automation.AddUser;
@@ -12,6 +13,7 @@ public class EmailVerification {
     public WebDriver driver;
     Webtables  wTable;
     AddUser aUser;
+    String Email;
 
     @BeforeClass
     public void setup() {
@@ -23,10 +25,10 @@ public class EmailVerification {
         aUser = PageFactory.initElements(driver, AddUser.class);
     }
 
-   /* @AfterClass
+   @AfterClass
     public void tearDown(){
         driver.quit();
-    }*/
+    }
 
     @Test
     public void emailVerification() {
@@ -40,14 +42,14 @@ public class EmailVerification {
         aUser.setTtext_Password("TestPassword");
         aUser.selectCompany();
         aUser.selectRole("Customer");
-        String textEmail = aUser.setTtext_Email(); //storing the generated Email value
-        aUser.setText_Email_write_into(textEmail);
+        Email=aUser.generateEmail(); /*storing the generated Email value*/
+        aUser.setText_Email(Email);
         aUser.setTtext_CellPhone("1234123412");
         aUser.clickOnSave();
         wTable.setDescEmail();
 
-        //Test Logic, checking whather the searchEmail() method will return true(mail exist) or false(mail does not exist)
-        Assert.assertTrue(wTable.searchEmail(driver, textEmail ));
+        //Test Logic, checking whether the searchEmail() method will return true(mail exist) or false(mail does not exist)
+        Assert.assertTrue(wTable.searchEmail(driver, Email ));
     }
 
 };

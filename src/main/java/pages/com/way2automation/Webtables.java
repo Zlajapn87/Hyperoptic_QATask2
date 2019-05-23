@@ -9,17 +9,19 @@ import java.util.List;
 
 public class Webtables extends BaseClass{
 
-    //This class contains all methods and webelements related to the webtables page
+    /*This class contains all methods and webelements related to the webtables page*/
 
     @FindBy (xpath = "//button[contains(text(), \"Add User\")]")  WebElement button_AddUser;
     @FindBy (xpath="//span[contains(text(), \"E-mail\")]") WebElement caption_Email;
 
+    //Constructor
     public Webtables(WebDriver driver) {
         super(driver);
         this.PAGE_TITLE = "Protractor practice website - WebTables";
         this.PAGE_URL = "http://www.way2automation.com/angularjs-protractor/webtables/";
     }
 
+    //Actons related to the WebTables - page
     public void clickAddUser(){
         clickElement(button_AddUser);
     }
@@ -28,15 +30,15 @@ public class Webtables extends BaseClass{
     }
 
 
-
+    //Search - method
     public boolean searchEmail(WebDriver driver, String email) {
-        //Counter that will be used for defining row number
+        //Counter that will be used for defining the row number
         int i = 0;
 
-        //Creating a list of Emails, displayed on the Webtable page
+        //Creating a list of Emails, displayed within the table
         List<WebElement> emailValues = driver.findElements(By.xpath("//tr[@class=\"smart-table-data-row ng-scope\"]/td[position()=7]"));
 
-        //Looping through the emails and verifying there is a specific email, displayed within the table
+        //Looping through the emails and verifying if the specific email is present within the table
         for (WebElement emailValue : emailValues) {
             ++i;
             if(emailValue.getText().equals(email)){

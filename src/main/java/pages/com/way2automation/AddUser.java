@@ -17,7 +17,7 @@ public class AddUser extends BaseClass{
     @FindBy(xpath="//input[@name = 'Mobilephone']") WebElement field_CellPhone;
     @FindBy(xpath="//button[contains(text(), \"Save\")]") WebElement button_Save;
 
-
+    //Constructor
     public AddUser(WebDriver driver) {
       super(driver);
     };
@@ -35,10 +35,10 @@ public class AddUser extends BaseClass{
         setElementText(field_password, text);
     };
 
-    public String setTtext_Email() {
+    public String generateEmail() {
         return emailGenerator();
     };
-    public void setText_Email_write_into(String text) {
+    public void setText_Email(String text) {
        setElementText(field_Email, text);
     };
 
