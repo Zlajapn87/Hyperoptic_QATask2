@@ -34,9 +34,15 @@ public class AddUser extends BaseClass{
     public void setTtext_Password(String text) {
         setElementText(field_password, text);
     };
-    public void setTtext_Email(String text) {
-        setElementText(field_Email, text);
+
+    public String setTtext_Email() {
+        return emailGenerator();
     };
+    public void setText_Email_write_into(String text) {
+       setElementText(field_Email, text);
+    };
+
+
     public void setTtext_CellPhone(String text) {
         setElementText(field_CellPhone, text);
     };
@@ -49,4 +55,6 @@ public class AddUser extends BaseClass{
     public void clickOnSave(){
         clickElement(button_Save);
     };
+
+
 }

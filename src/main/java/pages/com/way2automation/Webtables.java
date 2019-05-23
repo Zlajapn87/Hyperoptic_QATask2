@@ -27,15 +27,16 @@ public class Webtables extends BaseClass{
         clickElement(caption_Email);
     }
 
-    public boolean searchEmail(WebDriver driver, String email) {
 
+
+    public boolean searchEmail(WebDriver driver, String email) {
         //Counter that will be used for defining row number
         int i = 0;
 
         //Creating a list of Emails, displayed on the Webtable page
         List<WebElement> emailValues = driver.findElements(By.xpath("//tr[@class=\"smart-table-data-row ng-scope\"]/td[position()=7]"));
 
-        //looping through the emails and verifying there is a specific email, displayed within the table
+        //Looping through the emails and verifying there is a specific email, displayed within the table
         for (WebElement emailValue : emailValues) {
             ++i;
             if(emailValue.getText().equals(email)){

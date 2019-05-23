@@ -3,8 +3,9 @@ package pages.com.way2automation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import org.testng.Assert;
+
+import java.util.Random;
 
 public class BaseClass {
 
@@ -35,6 +36,14 @@ public class BaseClass {
         Select select = new Select(dropdown);
         select.selectByVisibleText(value);
         };
+
+    public String emailGenerator(){
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(1000);
+        String email = ("test"+ randomInt +"@gmail.com");
+        System.out.println(email);
+        return email;
+    }
 
     public String getPageUrl(){
         return PAGE_URL;
