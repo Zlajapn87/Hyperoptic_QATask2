@@ -2,7 +2,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.com.way2automation.AddUser;
@@ -25,11 +24,12 @@ public class EmailVerification {
         aUser = PageFactory.initElements(driver, AddUser.class);
     }
 
-   @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
-
+   /* tearDown() method is commented out, since there is no specific request for closing the browser (and in addition, verification of the result is easier)*/
+   /* @AfterClass
+      public void tearDown(){
+      driver.quit();
+    };
+*/
     @Test
     public void emailVerification() {
 

@@ -39,7 +39,8 @@ public class BaseClass {
         Select select = new Select(dropdown);
         select.selectByVisibleText(value);
         };
-    //Method that generates random (unique) emails
+
+    //Method that generates random (unique) email
     public String emailGenerator(){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
